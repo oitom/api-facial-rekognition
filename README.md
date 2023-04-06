@@ -1,9 +1,13 @@
-
 # API Facial Recognition
 
 
-API deep learning based on image and video analysis service for facial and object recognition with AWS Rekognition
+API deep learning based on image and video analysis service for facial and object recognition.
 
+**`Ruby on Jets`**
+**`AWS Rekognition`**
+**`AWS S3`**
+**`AWS SQS`**
+**`AWS SNS`**
 
 ## API Documentation
 
