@@ -157,6 +157,16 @@ To run this project, you will need to add the following environment variables to
 `BUCKET_NAME`
 
 
+## Installation
+
+Install and run api-facial-rekognition with a ruby on jets
+
+```bash
+  cd api-facial-rekognition
+  bundle install
+  bundle exec jets s
+```
+    
 ## Reference
 
  - [Amazon Rekognition Documentation](https://docs.aws.amazon.com/rekognition/index.html)
