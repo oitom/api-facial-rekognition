@@ -25,6 +25,8 @@ jobs:
         run: |
           gem install bundler:2.2.21
           bundle install
+      - name: Test environment variable
+        run: echo "AWS_REGION is $AWS_REGION"
       - name: Run Tests
         run: |
           bundle exec rspec
