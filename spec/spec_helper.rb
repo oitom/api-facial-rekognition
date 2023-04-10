@@ -28,6 +28,9 @@ Jets.boot
 require "jets/spec_helpers"
 
 ENV['AWS_REGION'] = 'us-east-1'
+ENV["BUCKET_NAME"] = 'rekognition-test'
+ENV["AWS_ACCESS_KEY_ID"] = 'key'
+ENV["AWS_SECRET_ACCESS_KEY"] = 'secret'
 
 module Helpers
   
