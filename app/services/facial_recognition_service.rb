@@ -13,8 +13,9 @@ class FacialRecognitionService
       attributes: ['ALL']
     }
     response = reko_client.detect_faces attrs
+    response = JSON.parse(response.to_json)
     
-    return [{ error: 'No faces detected' }, :ok] if response.face_details.empty?
+    return [{ error: 'No faces detected' }, :ok] if response['face_details'].nil?
     return [response, :ok]
   end
 
@@ -81,7 +82,8 @@ class FacialRecognitionService
       job_tag: "video_rekognition",
     })
     
-    job_id = response.job_id
+    response = JSON.parse(response.to_json)
+    job_id = response["job_id"]
     
     if params[:notify] == true
       return [{job_id: job_id}, :ok]
@@ -93,7 +95,7 @@ class FacialRecognitionService
           sort_by: "INDEX"
         })
 
-        if response.job_status == 'SUCCEEDED' || response.job_status == 'FAILED'
+        if response['job_status'] == 'SUCCEEDED' || response['job_status'] == 'FAILED'
           return [response, :ok]
         end
         sleep(5)
@@ -108,6 +110,7 @@ class FacialRecognitionService
       sort_by: "INDEX"
     })
     
+    response = JSON.parse(response.to_json)
     return [response, :ok]
   rescue Aws::Rekognition::Errors::ResourceNotFoundException => e
     return [{ error: e.message }, :ok]

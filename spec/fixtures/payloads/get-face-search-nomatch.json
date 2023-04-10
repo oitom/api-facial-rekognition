@@ -1,0 +1,67 @@
+{
+    "job_status": "SUCCEEDED",
+    "next_token": "D0jh0/gPpl9HzA+WIyCh2nylS445eDlqCBeTRvb37yC06F/WORUuAFnOfaOT+pZ8SP+hkPL0",
+    "video_metadata": {
+        "codec": "h264",
+        "duration_millis": 4766,
+        "format": "QuickTime / MOV",
+        "frame_rate": 30.0,
+        "frame_height": 480,
+        "frame_width": 852,
+        "color_range": "LIMITED"
+    },
+    "persons": [
+        {
+            "timestamp": 0,
+            "person": {
+                "index": 0,
+                "face": {
+                    "bounding_box": {
+                        "width": 0.2504424452781677,
+                        "height": 0.6384145617485046,
+                        "left": 0.5058720707893372,
+                        "top": 0.18616776168346405
+                    },
+                    "landmarks": [
+                        {
+                            "type": "eyeLeft",
+                            "x": 0.6268179416656494,
+                            "y": 0.41678816080093384
+                        },
+                        {
+                            "type": "eyeRight",
+                            "x": 0.7189028859138489,
+                            "y": 0.4241822063922882
+                        },
+                        {
+                            "type": "mouthLeft",
+                            "x": 0.6453697085380554,
+                            "y": 0.640958845615387
+                        },
+                        {
+                            "type": "mouthRight",
+                            "x": 0.7217797636985779,
+                            "y": 0.6461911797523499
+                        },
+                        {
+                            "type": "nose",
+                            "x": 0.7181198000907898,
+                            "y": 0.5142184495925903
+                        }
+                    ],
+                    "pose": {
+                        "roll": 6.670616149902344,
+                        "yaw": 31.001371383666992,
+                        "pitch": 15.067915916442871
+                    },
+                    "quality": {
+                        "brightness": 65.55905151367188,
+                        "sharpness": 89.85481262207031
+                    },
+                    "confidence": 99.9998550415039
+                }
+            },
+            "face_matches": []
+        }
+    ]
+}

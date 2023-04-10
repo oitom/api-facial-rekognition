@@ -1,0 +1,13 @@
+{
+    "job_status": "IN_PROGRESS",
+    "next_token": "D0jh0/gPpl9HzA+WIyCh2nylS445eDlqCBeTRvb37yC06F/WORUuAFnOfaOT+pZ8SP+hkPL0",
+    "video_metadata": {
+        "codec": "h264",
+        "duration_millis": 4766,
+        "format": "QuickTime / MOV",
+        "frame_rate": 30.0,
+        "frame_height": 480,
+        "frame_width": 852,
+        "color_range": "LIMITED"
+    }
+}

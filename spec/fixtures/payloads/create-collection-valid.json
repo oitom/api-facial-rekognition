@@ -1,0 +1,5 @@
+{
+    "status_code": 200,
+    "collection_arn": "aws:rekognition:us-east-1:876426640720:collection/92bf64d0-b9fa-013b-3d11-28a159459eb6",
+    "face_model_version": "6.0"
+}

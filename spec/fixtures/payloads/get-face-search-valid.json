@@ -1,0 +1,83 @@
+{
+    "job_status": "SUCCEEDED",
+    "next_token": "xKEjZEasAlboZtZepZjzhOYk375d67clzhrUf0Iliou1KR6vc5C8cynF+SUSg/Uu4ScvOYa6",
+    "video_metadata": {
+        "codec": "h264",
+        "duration_millis": 4766,
+        "format": "QuickTime / MOV",
+        "frame_rate": 30.0,
+        "frame_height": 480,
+        "frame_width": 852,
+        "color_range": "LIMITED"
+    },
+    "persons": [
+        {
+            "timestamp": 0,
+            "person": {
+                "index": 0,
+                "face": {
+                    "bounding_box": {
+                        "width": 0.2504424452781677,
+                        "height": 0.6384145617485046,
+                        "left": 0.5058720707893372,
+                        "top": 0.18616776168346405
+                    },
+                    "landmarks": [
+                        {
+                            "type": "eyeLeft",
+                            "x": 0.6268179416656494,
+                            "y": 0.41678816080093384
+                        },
+                        {
+                            "type": "eyeRight",
+                            "x": 0.7189028859138489,
+                            "y": 0.4241822063922882
+                        },
+                        {
+                            "type": "mouthLeft",
+                            "x": 0.6453697085380554,
+                            "y": 0.640958845615387
+                        },
+                        {
+                            "type": "mouthRight",
+                            "x": 0.7217797636985779,
+                            "y": 0.6461911797523499
+                        },
+                        {
+                            "type": "nose",
+                            "x": 0.7181198000907898,
+                            "y": 0.5142184495925903
+                        }
+                    ],
+                    "pose": {
+                        "roll": 6.670616149902344,
+                        "yaw": 31.001371383666992,
+                        "pitch": 15.067915916442871
+                    },
+                    "quality": {
+                        "brightness": 65.55905151367188,
+                        "sharpness": 89.85481262207031
+                    },
+                    "confidence": 99.9998550415039
+                }
+            },
+            "face_matches": [
+                {
+                    "similarity": 99.99674987792969,
+                    "face": {
+                        "face_id": "4b1621d8-4e09-4e76-b40b-448924f81ac8",
+                        "bounding_box": {
+                            "width": 0.237746000289917,
+                            "height": 0.289669007062912,
+                            "left": 0.44290998578071594,
+                            "top": 0.279558002948761
+                        },
+                        "image_id": "dc881c74-71fb-3ff0-8ce0-42fcd8672746",
+                        "external_image_id": "48d6d6b0-b9fb-013b-3d22-28a159459eb6",
+                        "confidence": 99.98380279541016
+                    }
+                }
+            ]
+        }
+    ]
+}
