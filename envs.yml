@@ -1,0 +1,13 @@
+name: My Workflow
+
+on: [push]
+
+env:
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: My step
+        run: echo "AWS_REGION is $AWS_REGION"
