@@ -177,7 +177,7 @@ Run de project in postman [here](https://documenter.getpostman.com/view/6986567/
 
 ## Reference
 
- - [Amazon Rekognition Documentation](https://docs.aws.amazon.com/rekognition/index.html)
+- [Amazon Rekognition Documentation](https://docs.aws.amazon.com/rekognition/index.html)
 - [How to use AWS Rekognition Ruby](https://medium.com/@codingInformer/how-to-use-aws-rekognition-using-ruby-on-rails-a5ad545bd750)
 ## 🚀 Authors
 

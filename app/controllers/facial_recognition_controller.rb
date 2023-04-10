@@ -42,7 +42,7 @@ class FacialRecognitionController < ApplicationController
     end
 
     def search_faces_in_video_params
-      params.permit(:source_image, :target_video)
+      params.permit(:source_image, :target_video, :notify)
     end
 
     def result_faces_in_video_params
