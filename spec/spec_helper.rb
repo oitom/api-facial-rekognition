@@ -27,6 +27,8 @@ Jets.boot
 
 require "jets/spec_helpers"
 
+ENV['AWS_REGION'] = 'us-east-1'
+
 module Helpers
   
   def clean

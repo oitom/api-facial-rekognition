@@ -89,6 +89,7 @@ class FacialRecognitionService
       return [{job_id: job_id}, :ok]
     else
       loop do
+        sleep(5)
         response = reko_client.get_face_search({
           job_id: job_id,
           max_results: 1,
@@ -97,8 +98,7 @@ class FacialRecognitionService
 
         if response['job_status'] == 'SUCCEEDED' || response['job_status'] == 'FAILED'
           return [response, :ok]
-        end
-        sleep(5)
+        end        
       end      
     end
   end
