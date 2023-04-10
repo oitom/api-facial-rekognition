@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [ main ]
 
+  env:
+    AWS_REGION: ${{ env.AWS_REGION }}
+    AWS_ACCESS_KEY_ID: ${{ env.AWS_ACCESS_KEY_ID }}
+    AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
+    BUCKET_NAME: ${{ env.BUCKET_NAME }}
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -18,6 +24,10 @@ jobs:
       with:
         ruby-version: 2.7.0
   
+    - name: Test Envs
+      run: |
+        echo "AWS_REGION is $AWS_REGION"
+    
     - name: Install Dependencies
       run: |
         gem install bundler
@@ -27,8 +37,4 @@ jobs:
       run: |
         bundle exec rspec
       
-      env:
-          AWS_REGION: ${{ env.AWS_REGION }}
-          AWS_ACCESS_KEY_ID: ${{ env.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
-          BUCKET_NAME: ${{ env.BUCKET_NAME }}
+   
