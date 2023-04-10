@@ -25,9 +25,9 @@ jobs:
         run: |
           gem install bundler:2.2.21
           bundle install
-      - name: Run Jets commands
+      - name: Run Tests
         run: |
-          jets deploy
+          bundle exec rspec
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
