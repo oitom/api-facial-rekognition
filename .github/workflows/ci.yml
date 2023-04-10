@@ -1,40 +1,35 @@
-name: CI
+name: Jets Workflow
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 env:
-  AWS_REGION: ${{ env.AWS_REGION }}
-  AWS_ACCESS_KEY_ID: ${{ env.AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
-  BUCKET_NAME: ${{ env.BUCKET_NAME }}
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Setup Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.7.0
-  
-    - name: Test Envs
-      run: |
-        echo "AWS_REGION is $AWS_REGION"
-    
-    - name: Install Dependencies
-      run: |
-        gem install bundler
-        bundle install --jobs 4 --retry 3
-
-    - name: Run Tests
-      run: |
-        bundle exec rspec
-      
-   
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Ruby environment
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
+      - name: Install dependencies
+        run: |
+          gem install bundler:2.2.21
+          bundle install
+      - name: Run Jets commands
+        run: |
+          jets deploy
+        env:
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
