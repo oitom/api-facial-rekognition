@@ -1,13 +1,6 @@
 source "https://rubygems.org"
 
 gem "jets", "3.1.5"
-
-# Include mysql2 gem if you are using ActiveRecord, remove next line
-# and config/database.yml file if you are not
-# gem 'activerecord', '6.1.4.7'
-# gem 'rest-client'
-
-gem "mysql2", "~> 0.5.2"
 gem 'uuid', '~> 2.3', '>= 2.3.8'
 gem 'aws-sdk', '~> 3.0', '>= 3.1.0'
 gem 'aws-sdk-rekognition'
