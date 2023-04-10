@@ -170,7 +170,11 @@ Install and run api-facial-rekognition with a ruby on jets
   bundle install
   bundle exec jets s
 ```
-    
+
+## Run in postman
+
+Run de project in postman [here](https://documenter.getpostman.com/view/6986567/2s93Xtzjz7)
+
 ## Reference
 
  - [Amazon Rekognition Documentation](https://docs.aws.amazon.com/rekognition/index.html)
