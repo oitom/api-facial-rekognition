@@ -4,6 +4,8 @@
 
 [![Workflow](https://github.com/oitom/api-facial-rekognition/actions/workflows/ci.yml/badge.svg)](https://github.com/oitom/api-facial-rekognition/actions/workflows/ci.yml)
 
+[![codecov](https://codecov.io/github/oitom/api-facial-rekognition/branch/main/graph/badge.svg?token=5T4T8A0LWB)](https://codecov.io/github/oitom/api-facial-rekognition)
+
 API deep learning based on image and video analysis service for facial and object recognition.
 
 **`Ruby on Jets`**
