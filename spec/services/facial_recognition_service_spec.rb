@@ -87,6 +87,16 @@ describe FacialRecognitionService do
   end
 
   context 'result_faces_in_video' do
+    it 'Result not found job id Resource Not Found' do
+      allow_any_instance_of(Aws::Rekognition::Errors::ResourceNotFoundException).to receive(:get_face_search)
+
+      job_id = "123"
+      res, status = FacialRecognitionService.new.result_faces_in_video(:job_id => job_id)
+      
+      expect(res[:error]).to eq("Could not find JobId")
+      expect(status).to eq(:ok)
+    end
+
     it 'Result not found job id' do
       allow_any_instance_of(Aws::Rekognition::Client).to receive(:get_face_search).and_return(payload("get-face-search-invalid"))
 
