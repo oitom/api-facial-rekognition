@@ -21,7 +21,7 @@ API deep learning based on image and video analysis service for facial and objec
 
 | Param   | Type       | Description                           |
 | :---------- | :--------- | :---------------------------------- |
-| `photo_image` | `base64` | A photo to be dectado a face. ***Required***. |
+| `photo_image` | `base64` JPG type | A photo to be detected a face. ***Required***. |
 
 ##### Response:
 ``` 
@@ -68,8 +68,8 @@ See mor at: [API_DetectFaces](https://docs.aws.amazon.com/rekognition/latest/API
 
 | Param   | Type       | Description                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `source_image` | `base64` | A face photo to be used as a source. ***Required***|
-| `target_image` | `base64` | A face photo to be used as a target.  ***Required***.|
+| `source_image` | `base64` JPG type | A face photo to be used as a source. ***Required***|
+| `target_image` | `base64` JPG type | A face photo to be used as a target.  ***Required***.|
 
 ##### Response:
 ``` 
@@ -104,8 +104,8 @@ See mor at: [API_CompareFaces](https://docs.aws.amazon.com/rekognition/latest/AP
 
 | Param   | Type       | Description                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `source_image` | `base64` | A face photo to be used as a source. ***Required***|
-| `target_video` | `base64` | A video to be used as a target.  ***Required***.|
+| `source_image` | `base64` JPG type | A face photo to be used as a source. ***Required***|
+| `target_video` | `base64` MP4 type | A video to be used as a target.  ***Required***.|
 
 ##### Response:
 ``` 
