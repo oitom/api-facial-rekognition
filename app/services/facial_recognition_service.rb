@@ -109,11 +109,11 @@ class FacialRecognitionService
       resp_collection = reko_client.create_collection({
         collection_id: collection_id
       })
-      collection_id
+      return collection_id
     end
 
     def create_index_face(collection_id, source_image)
-      response = reko_client.index_faces({
+      return reko_client.index_faces({
         collection_id: collection_id, 
         detection_attributes: [
         ], 
@@ -128,7 +128,7 @@ class FacialRecognitionService
     end
 
     def start_face_search(video, collection_id)
-      response = reko_client.start_face_search({
+      return reko_client.start_face_search({
         video: { 
           s3_object: {
             bucket: ENV["BUCKET_NAME"],
@@ -144,15 +144,13 @@ class FacialRecognitionService
         },
         job_tag: "video_rekognition",
       })
-      response
     end
 
     def get_face_search(job_id)
-      response = reko_client.get_face_search({
+      return reko_client.get_face_search({
         job_id: job_id,
         max_results: 1,
         sort_by: "INDEX"
       })
-      response
     end
 end
