@@ -93,11 +93,11 @@ class FacialRecognitionService
         key:  name_file,
       })
 
-      name_file
+      return name_file
     end
 
     def reko_client
-      aws_reko = Aws::Rekognition::Client.new(
+      return Aws::Rekognition::Client.new(
         region: 'us-east-1',
         access_key_id: ENV['AWS_ACCESS_KEY_ID'],
         secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
@@ -106,7 +106,7 @@ class FacialRecognitionService
 
     def create_collection
       collection_id = UUID.new.generate
-      resp_collection = reko_client.create_collection({
+      reko_client.create_collection({
         collection_id: collection_id
       })
       return collection_id
@@ -115,8 +115,7 @@ class FacialRecognitionService
     def create_index_face(collection_id, source_image)
       return reko_client.index_faces({
         collection_id: collection_id, 
-        detection_attributes: [
-        ], 
+        detection_attributes: [], 
         external_image_id: UUID.new.generate, 
         image: {
           s3_object: {

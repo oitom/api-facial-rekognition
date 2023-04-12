@@ -117,7 +117,7 @@ describe FacialRecognitionService do
       video_target = open_video_fixture('search-faces-target')
 
       res, status = FacialRecognitionService.new.search_faces_in_video(:source_image => face_origem, :target_video => video_target, :notify => true)
-      res, status = FacialRecognitionService.new.result_faces_in_video(:job_id => res[:job_id])
+      res, status = FacialRecognitionService.new.result_faces_in_video(:job_id => res[:job_id]) if status == :ok
       
        expect(res['job_status']).to eq("IN_PROGRESS")
       expect(status).to eq(:ok)
