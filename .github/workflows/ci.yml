@@ -10,10 +10,11 @@ jobs:
     environment: dev
     steps:
       - name: Test environment variable
-        run: echo $AWS_REGION
-        run: echo $BUCKET_NAME
-        run: echo $AWS_ACCESS_KEY_ID
-        run: echo $AWS_SECRET_ACCESS_KEY
+        run: |
+          echo $AWS_REGION
+          echo $BUCKET_NAME
+          echo $AWS_ACCESS_KEY_ID
+          echo $AWS_SECRET_ACCESS_KEY
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
@@ -31,7 +32,7 @@ jobs:
         with:
           ruby-version: '2.7'
       - name: Install dependencies
-        run: |
+          |
           gem install bundler:2.2.21
           bundle install
       - name: Run Tests
