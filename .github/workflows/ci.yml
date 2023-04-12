@@ -10,7 +10,7 @@ jobs:
     environment: dev
     steps:
       - name: Test environment variable
-        run: echo $AWS_REGION $BUCKET_NAME $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY
+        run: echo $AWS_REGION $BUCKET_NAME $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY $CODECOV_TOKEN
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
@@ -35,12 +35,18 @@ jobs:
       - name: Run Tests
         run: |
           bundle exec rspec
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}       
+  publish:
+    runs-on: ubuntu-latest
+    environment: dev
+    needs: build 
+    steps:
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   
