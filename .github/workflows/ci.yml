@@ -5,9 +5,18 @@ on:
     branches:
       - main
 jobs:
+  environment:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: Test environment variable
+        run: echo $AWS_REGION
+        env:
+          AWS_REGION: ${{ secrets.AWS_REGION }}
   build:
     runs-on: ubuntu-latest
     environment: dev
+    needs: environment 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -19,22 +28,9 @@ jobs:
         run: |
           gem install bundler:2.2.21
           bundle install
-  environment:
-    runs-on: ubuntu-latest
-    environment: dev
-    needs: build
-    steps:
-      - name: Test environment variable
-        run: echo $AWS_REGION
-        env:
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-  test:
-    runs-on: ubuntu-latest
-    environment: dev
-    needs: environment
-    steps:
       - name: Run Tests
         run: |
           bundle exec rspec
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
+  
