@@ -49,9 +49,8 @@ class FacialRecognitionService
     
     collection_id = create_collection
     create_index_face(collection_id, source_image)
+
     response = start_face_search(video, collection_id)
-        
-    response = JSON.parse(response.to_json)
     job_id = response["job_id"]
     
     if params[:notify] == true
@@ -63,14 +62,12 @@ class FacialRecognitionService
         if response['job_status'] == 'SUCCEEDED' || response['job_status'] == 'FAILED'
           return [response, :ok]
         end
-        
       end      
     end
   end
 
   def result_faces_in_video(params= {})
     response = get_face_search(params[:job_id])
-    response = JSON.parse(response.to_json)
     return [response, :ok]
   rescue Aws::Rekognition::Errors::ResourceNotFoundException => e
     return [{ error: e.message }, :ok]
@@ -127,7 +124,7 @@ class FacialRecognitionService
     end
 
     def start_face_search(video, collection_id)
-      return reko_client.start_face_search({
+      response = reko_client.start_face_search({
         video: { 
           s3_object: {
             bucket: ENV["BUCKET_NAME"],
@@ -135,7 +132,7 @@ class FacialRecognitionService
           },
         },
         client_request_token: UUID.new.generate,
-        face_match_threshold: 1.0,
+        face_match_threshold: 75.0,
         collection_id: collection_id,
         notification_channel: {
           sns_topic_arn: "arn:aws:sns:us-east-1:876426640720:videos-rekognition.fifo",
@@ -143,13 +140,15 @@ class FacialRecognitionService
         },
         job_tag: "video_rekognition",
       })
+      return JSON.parse(response.to_json)
     end
 
     def get_face_search(job_id)
-      return reko_client.get_face_search({
+      response = reko_client.get_face_search({
         job_id: job_id,
         max_results: 1,
         sort_by: "INDEX"
       })
+      return JSON.parse(response.to_json)
     end
 end
