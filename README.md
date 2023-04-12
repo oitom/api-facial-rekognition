@@ -2,6 +2,7 @@
 
 [![CodeFactor](https://www.codefactor.io/repository/github/oitom/api-facial-rekognition/badge)](https://www.codefactor.io/repository/github/oitom/api-facial-rekognition)
 
+[![Workflow](https://github.com/oitom/api-facial-rekognition/actions/workflows/ci.yml/badge.svg)](https://github.com/oitom/api-facial-rekognition/actions/workflows/ci.yml)
 
 API deep learning based on image and video analysis service for facial and object recognition.
 
