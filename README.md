@@ -20,7 +20,7 @@ API deep learning based on image and video analysis service for facial and objec
 
 | Param   | Type       | Description                           |
 | :---------- | :--------- | :---------------------------------- |
-| `photo_image` | `base64` JPG type | A photo to be detected a face. ***Required***. |
+| `photo_image` | `base64` JPG or PNG type | A photo to be detected a face. ***Required***. |
 
 ##### Response:
 ``` 
