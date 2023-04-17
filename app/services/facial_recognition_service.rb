@@ -53,7 +53,7 @@ class FacialRecognitionService
     response = start_face_search(video, collection_id)
     job_id = response["job_id"]
     
-    if params[:notify] == true
+    if params[:async] == true
       return [{job_id: job_id}, :ok]
     else
       loop do

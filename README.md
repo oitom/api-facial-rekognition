@@ -105,6 +105,7 @@ See mor at: [API_CompareFaces](https://docs.aws.amazon.com/rekognition/latest/AP
 | :---------- | :--------- | :------------------------------------------ |
 | `source_image` | `base64` JPG type | A face photo to be used as a source. ***Required***|
 | `target_video` | `base64` MP4 type | A video to be used as a target.  ***Required***.|
+| `async` | `boolean` | Set asynchronous operation.  ***Default is FALSE***.|
 
 ##### Response:
 ``` 
